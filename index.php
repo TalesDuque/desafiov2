@@ -1,4 +1,7 @@
 <?php
 
 require __DIR__."/vendor/autoload.php";
-easter_date( [$year]);
+
+use \App\Controller\Pages\Dashboard;
+
+echo Dashboard::getDashboard();
