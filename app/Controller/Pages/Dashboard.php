@@ -3,6 +3,7 @@
 namespace App\Controller\Pages;
 
 use \App\Utils\View;
+use \App\Model\Entity\Product;
 /**
  *
  */
@@ -15,6 +16,8 @@ class Dashboard extends Page
    */
   public static function getDashboard() : string
   {
+      $obProduct = new Product();
+
       return View::render('dashboard', [
         'name' => 'Tales',
         'description' => 'Alo'
