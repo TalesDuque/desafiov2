@@ -1,0 +1,6 @@
+# Ligando o Módulo de Sobrescrita
+RewriteEngine on
+
+# Regra de Rewrite, tudo é enviado para index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ ./index.php [QSA,NC]
