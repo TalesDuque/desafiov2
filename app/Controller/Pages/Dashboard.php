@@ -7,7 +7,7 @@ use \App\Model\Entity\Product;
 /**
  *
  */
-class Dashboard extends Page
+class Dashboard
 {
 
   /**

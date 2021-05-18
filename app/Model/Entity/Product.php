@@ -7,9 +7,9 @@ namespace App\Model\Entity;
  */
 class Product
 {
-    public string $name = 'Adidas Ultraboost';
-    public string $description = 'Tenis Bom Demais';
-    public string $category = 'Lifestyle Shoes';
-    public int $sku = 4495;
-    public int $quantity = 33;
+    public $name = 'Adidas Ultraboost';
+    public $description = 'Tenis Bom Demais';
+    public $category = 'Lifestyle Shoes';
+    public $sku = 4495;
+    public $quantity = 33;
 }

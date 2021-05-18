@@ -7,12 +7,12 @@ namespace App\Http;
  */
 class Response
 {
-    private int $httpCode = 200;
-    private array $headers = [];
-    private string $contentType = 'text/html';
-    private mixed $content;
+    private $httpCode = 200;
+    private $headers = [];
+    private $contentType = 'text/html';
+    private $content;
 
-    public function construct($httpCode, $content, $contentType = 'text/html')
+    public function __construct($httpCode, $content, $contentType = 'text/html')
     {
         $this->httpCode = $httpCode;
         $this->content = $content;
@@ -59,7 +59,6 @@ class Response
     {
         // Envia os Headers
         $this->sendHeaders();
-
         // Imprime o Conteudo
         switch ($this->contentType) {
             case 'text/html':

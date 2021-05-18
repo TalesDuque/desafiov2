@@ -7,11 +7,11 @@ namespace App\Http;
  */
 class Request
 {
-    private string $httpMethod;
-    private string $uri;
-    private array $queryParams = [];
-    private array $postVars = [];
-    private array $headers = [];
+    private $httpMethod;
+    private $uri;
+    private $queryParams = [];
+    private $postVars = [];
+    private $headers = [];
 
     /**
      * Construtor da Classe Request
