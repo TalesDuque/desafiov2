@@ -3,9 +3,13 @@
 require __DIR__."/vendor/autoload.php";
 
 use \App\Http\Router;
-
+use \App\Utils\View;
 
 define('URL', 'http://localhost/desafiov2');
+
+View::init([
+    'URL' => URL
+]);
 
 $obRouter = new Router(URL);
 

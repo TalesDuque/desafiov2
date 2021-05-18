@@ -11,7 +11,7 @@ class Products
 {
 
   /**
-   * Método que retorna o conteúdo da Dashboard
+   * Método que retorna o conteúdo da pagina de Produtos
    * @return string
    */
   public static function getProducts() : string
