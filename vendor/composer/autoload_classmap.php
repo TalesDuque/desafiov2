@@ -6,14 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'App\\Controller\\Pages\\Categories' => $baseDir . '/app/Controller/Pages/Categories.php',
-    'App\\Controller\\Pages\\Dashboard' => $baseDir . '/app/Controller/Pages/Dashboard.php',
-    'App\\Controller\\Pages\\Products' => $baseDir . '/app/Controller/Pages/Products.php',
-    'App\\Http\\Request' => $baseDir . '/app/Http/Request.php',
-    'App\\Http\\Response' => $baseDir . '/app/Http/Response.php',
-    'App\\Http\\Router' => $baseDir . '/app/Http/Router.php',
-    'App\\Model\\Entity\\Product' => $baseDir . '/app/Model/Entity/Product.php',
-    'App\\Utils\\View' => $baseDir . '/app/Utils/View.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
-    'WilliamCosta\\DotEnv\\Environment' => $vendorDir . '/william-costa/dot-env/src/Environment.php',
 );

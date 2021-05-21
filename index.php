@@ -1,16 +1,8 @@
 <?php
 
-require __DIR__."/vendor/autoload.php";
+require __DIR__ . '/includes/app.php';
 
 use \App\Http\Router;
-use \App\Utils\View;
-use \WilliamCosta\DotEnv\Environment;
-
-Environment::load(__DIR__);
-
-View::init([
-    'URL' => getenv('URL')
-]);
 
 $obRouter = new Router(getenv('URL'));
 

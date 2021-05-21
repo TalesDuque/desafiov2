@@ -29,7 +29,7 @@ $obRouter->get('/addCategory', [
 ]);
 
 $obRouter->post('/addCategory', [
-    function(){
+    function($request){
         return new Response(200, Pages\AddCategories::addCategories());
     }
 ]);
@@ -41,7 +41,7 @@ $obRouter->get('/addProduct', [
 ]);
 
 $obRouter->post('/addProduct', [
-    function(){
+    function($request){
         return new Response(200, Pages\AddProducts::addProducts());
     }
 ]);

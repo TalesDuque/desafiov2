@@ -44,32 +44,32 @@
     <form method='post'>
       <div class="input-field">
         <label for="sku" class="label">Product SKU</label>
-        <input type="text" id="sku" class="input-text" required/>
+        <input type="text" id="sku" class="input-text" name="sku" required/>
       </div>
       <div class="input-field">
         <label for="name" class="label">Product Name</label>
-        <input type="text" id="name" class="input-text" required/>
+        <input type="text" id="name" class="input-text" name="name" required/>
       </div>
       <div class="input-field">
         <label for="price" class="label">Price</label>
-        <input type="text" id="price" class="input-text" required/>
+        <input type="text" id="price" class="input-text" name="price" required/>
       </div>
       <div class="input-field">
         <label for="quantity" class="label">Quantity</label>
-        <input type="text" id="quantity" class="input-text" required/>
+        <input type="text" id="quantity" class="input-text" name="quantity" required/>
       </div>
       <div class="input-field">
         <label for="category" class="label">Categories</label>
-        <select multiple id="category" class="input-text" required>
-          <option>Category 1</option>
-          <option>Category 2</option>
-          <option>Category 3</option>
-          <option>Category 4</option>
+        <select multiple id="category" class="input-text" name="categories" required>
+          <option value="Category 1">Category 1</option>
+          <option value="Category 2">Category 2</option>
+          <option value="Category 3">Category 3</option>
+          <option value="Category 4">Category 4</option>
         </select>
       </div>
       <div class="input-field">
         <label for="description" class="label">Description</label>
-        <textarea id="description" class="input-text" required></textarea>
+        <textarea id="description" class="input-text" name="description" required></textarea>
       </div>
       <div class="actions-form">
         <a href="{{URL}}/products" class="action back">Back</a>
