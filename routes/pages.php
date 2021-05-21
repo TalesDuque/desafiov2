@@ -21,3 +21,27 @@ $obRouter->get('/categories', [
         return new Response(200, Pages\Categories::getCategories());
     }
 ]);
+
+$obRouter->get('/addCategory', [
+    function(){
+        return new Response(200, Pages\AddCategories::addCategories());
+    }
+]);
+
+$obRouter->post('/addCategory', [
+    function(){
+        return new Response(200, Pages\AddCategories::addCategories());
+    }
+]);
+
+$obRouter->get('/addProduct', [
+    function(){
+        return new Response(200, Pages\AddProducts::addProducts());
+    }
+]);
+
+$obRouter->post('/addProduct', [
+    function(){
+        return new Response(200, Pages\AddProducts::addProducts());
+    }
+]);

@@ -9,7 +9,7 @@ class Product
 {
     public $name = 'Adidas Ultraboost';
     public $description = 'Tenis Bom Demais';
-    public $category = 'Lifestyle Shoes';
+    public $category = 'Running Shoes';
     public $sku = 4495;
     public $quantity = 33;
 }

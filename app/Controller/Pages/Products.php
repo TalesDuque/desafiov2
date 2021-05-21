@@ -16,8 +16,7 @@ class Products
    */
   public static function getProducts() : string
   {
-      $obProduct = new Product();
-
+      $newProduct = new Product();
       return View::render('products', [
         'name' => 'Tales',
         'description' => 'Alo'

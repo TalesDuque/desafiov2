@@ -16,8 +16,7 @@ class Dashboard
    */
   public static function getDashboard() : string
   {
-      $obProduct = new Product();
-
+      $newProduct = new Product();
       return View::render('dashboard', [
         'name' => 'Tales',
         'description' => 'Alo'

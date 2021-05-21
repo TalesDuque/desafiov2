@@ -7,17 +7,17 @@ use \App\Model\Entity\Category;
 /**
  *
  */
-class Categories
+class AddCategories
 {
 
   /**
-   * Método que retorna o conteúdo da pagina de Categorias
+   * Método que retorna o conteúdo da pagina de Adicionar Categorias
    * @return string
    */
-  public static function getCategories() : string
+  public static function addCategories() : string
   {
       $newCategory = new Category();
-      return View::render('categories', [
+      return View::render('addCategory', [
       ]);
   }
 }
