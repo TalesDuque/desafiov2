@@ -15,3 +15,9 @@ $obRouter->get('/products', [
         return new Response(200, Pages\Products::getProducts());
     }
 ]);
+
+$obRouter->get('/categories', [
+    function(){
+        return new Response(200, Pages\Categories::getCategories());
+    }
+]);

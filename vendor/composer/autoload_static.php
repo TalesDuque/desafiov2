@@ -7,6 +7,10 @@ namespace Composer\Autoload;
 class ComposerStaticInit394b2aaf9c0e931304e046e040aa216c
 {
     public static $prefixLengthsPsr4 = array (
+        'W' => 
+        array (
+            'WilliamCosta\\DotEnv\\' => 20,
+        ),
         'A' => 
         array (
             'App\\' => 4,
@@ -14,6 +18,10 @@ class ComposerStaticInit394b2aaf9c0e931304e046e040aa216c
     );
 
     public static $prefixDirsPsr4 = array (
+        'WilliamCosta\\DotEnv\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/william-costa/dot-env/src',
+        ),
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
@@ -21,10 +29,16 @@ class ComposerStaticInit394b2aaf9c0e931304e046e040aa216c
     );
 
     public static $classMap = array (
+        'App\\Controller\\Pages\\Categories' => __DIR__ . '/../..' . '/app/Controller/Pages/Categories.php',
         'App\\Controller\\Pages\\Dashboard' => __DIR__ . '/../..' . '/app/Controller/Pages/Dashboard.php',
+        'App\\Controller\\Pages\\Products' => __DIR__ . '/../..' . '/app/Controller/Pages/Products.php',
+        'App\\Http\\Request' => __DIR__ . '/../..' . '/app/Http/Request.php',
+        'App\\Http\\Response' => __DIR__ . '/../..' . '/app/Http/Response.php',
+        'App\\Http\\Router' => __DIR__ . '/../..' . '/app/Http/Router.php',
         'App\\Model\\Entity\\Product' => __DIR__ . '/../..' . '/app/Model/Entity/Product.php',
         'App\\Utils\\View' => __DIR__ . '/../..' . '/app/Utils/View.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'WilliamCosta\\DotEnv\\Environment' => __DIR__ . '/..' . '/william-costa/dot-env/src/Environment.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
