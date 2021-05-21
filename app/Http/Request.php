@@ -19,6 +19,7 @@ class Request
     public function __construct()
     {
         $this->queryParams = $_GET ?? [];
+        print_r($_POST);
         $this->postVars = $_POST ?? [];
         $this->headers = getallheaders();
         $this->httpMethod = $_SERVER['REQUEST_METHOD'] ?? '';

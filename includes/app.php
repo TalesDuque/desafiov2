@@ -6,6 +6,8 @@ use \App\Utils\View;
 use \WilliamCosta\DotEnv\Environment;
 use \WilliamCosta\DatabaseManager\Database;
 
+Environment::load(__DIR__.'/../');
+
 Database::config(
     getenv('DB_HOST'),
     getenv('DB_NAME'),
@@ -14,7 +16,6 @@ Database::config(
     getenv('DB_PORT')
 );
 
-Environment::load(__DIR__.'/../');
 
 View::init([
     'URL' => getenv('URL')

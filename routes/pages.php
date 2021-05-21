@@ -36,12 +36,12 @@ $obRouter->post('/addCategory', [
 
 $obRouter->get('/addProduct', [
     function(){
-        return new Response(200, Pages\AddProducts::addProducts());
+        return new Response(200, Pages\AddProducts::renderAddProducts());
     }
 ]);
 
 $obRouter->post('/addProduct', [
     function($request){
-        return new Response(200, Pages\AddProducts::addProducts());
+        return new Response(200, Pages\AddProducts::insertProduct($request));
     }
 ]);

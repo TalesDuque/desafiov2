@@ -7,6 +7,14 @@ namespace App\Model\Entity;
  */
 class Category
 {
-    private $name = 'Running Shoes';
-    private $code = 3390;
+    private $name;
+    private $code;
+
+    public function getName() : string {
+        return $this->name;
+    }
+
+    public function getCode() : string {
+        return $this->code;
+    }
 }
