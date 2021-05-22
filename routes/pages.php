@@ -24,13 +24,13 @@ $obRouter->get('/categories', [
 
 $obRouter->get('/addCategory', [
     function(){
-        return new Response(200, Pages\AddCategories::addCategories());
+        return new Response(200, Pages\AddCategories::renderAddCategories());
     }
 ]);
 
 $obRouter->post('/addCategory', [
     function($request){
-        return new Response(200, Pages\AddCategories::addCategories());
+        return new Response(200, Pages\AddCategories::insertCategory($request));
     }
 ]);
 

@@ -10,13 +10,13 @@ use \WilliamCosta\DatabaseManager\Database;
 class Product
 {
 
-    public $id;
-    public $name;
-    public $description;
-    public $price;
-    public $sku;
-    public $quantity;
-    public $categories;
+    private $id;
+    private $name;
+    private $description;
+    private $price;
+    private $sku;
+    private $quantity;
+    private $categories;
 
     /**
      * Retorna ID do Produto
@@ -64,58 +64,73 @@ class Product
     }
 
     /**
-     * Retorna as Categorias do Produto
-     * @return array
+     * Retorna o Preço do
+     * @return string
      */
-    public function getCategories() : array
+    public function getPrice() : string
+    {
+        return $this->price;
+    }
+
+    /**
+     * Retorna as Categorias do Produto
+     * @return $categories
+     */
+    public function getCategories()
     {
         return $this->categories;
     }
 
     /**
      * Registra o Nome do Produto
+     * @param string $name
      */
-    public function setName($name)
+    public function setName(string $name)
     {
         $this->name = $name;
     }
 
     /**
      * Registra a Descrição do Produto
+     * @param string $description
      */
-    public function setDescription($description)
+    public function setDescription(string $description)
     {
         $this->description = $description;
     }
 
     /**
      * Registra o SKU do Produto
+     * @param string $sku
      */
-    public function setSku($sku)
+    public function setSku(string $sku)
     {
         $this->sku = $sku;
     }
 
     /**
      * Registra a Quantidade do Produto
+     * @param string $quantity
      */
-    public function setQuantity($quantity)
+    public function setQuantity(string $quantity)
     {
         $this->quantity = (int)$quantity;
     }
 
     /**
      * Registra o Preço do Produto
+     * @param string $price
      */
-    public function setPrice($price)
+    public function setPrice(string $price)
     {
         $this->price = $price;
     }
 
     /**
      * Registra as Categorias do Produto
+     * @param mixed $categories
      */
-    public function setCategories($categories)
+    public function setCategories(mixed $categories)
     {
         $this->categories = $categories;
     }
@@ -125,7 +140,7 @@ class Product
      */
     public function addProduct()
     {
-        $this->id = (new Database('product'))->insert([
+        $this->idproduct = (new Database('product'))->insert([
             'sku' => $this->sku,
             'name' => $this->name,
             'price' => $this->price,
@@ -134,4 +149,16 @@ class Product
         ]);
     }
 
+    /**
+     * Retorna todos produtos do Banco de Dados
+     * @param  string $where
+     * @param  string $order
+     * @param  string $limit
+     * @param  string $fields
+     * @return PDOStatement
+     */
+    public static function getProducts($where = null, $order = null, $limit = null, $fields = '*')
+    {
+        return (new Database('product'))->select($where, $order, $limit, $fields);
+    }
 }

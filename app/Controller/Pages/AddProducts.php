@@ -36,7 +36,7 @@ class AddProducts
         $newProduct->setPrice($productVars['price']);
         $newProduct->setQuantity($productVars['quantity']);
         $newProduct->setCategories($productVars['categories']);
-        $newProduct->AddProduct();
+        $newProduct->addProduct();
         return Products::getProducts();
     }
 
