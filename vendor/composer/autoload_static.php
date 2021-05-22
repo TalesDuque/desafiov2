@@ -34,7 +34,21 @@ class ComposerStaticInit394b2aaf9c0e931304e046e040aa216c
     );
 
     public static $classMap = array (
+        'App\\Controller\\Pages\\AddCategories' => __DIR__ . '/../..' . '/app/Controller/Pages/AddCategories.php',
+        'App\\Controller\\Pages\\AddProducts' => __DIR__ . '/../..' . '/app/Controller/Pages/AddProducts.php',
+        'App\\Controller\\Pages\\Categories' => __DIR__ . '/../..' . '/app/Controller/Pages/Categories.php',
+        'App\\Controller\\Pages\\Dashboard' => __DIR__ . '/../..' . '/app/Controller/Pages/Dashboard.php',
+        'App\\Controller\\Pages\\Products' => __DIR__ . '/../..' . '/app/Controller/Pages/Products.php',
+        'App\\Http\\Request' => __DIR__ . '/../..' . '/app/Http/Request.php',
+        'App\\Http\\Response' => __DIR__ . '/../..' . '/app/Http/Response.php',
+        'App\\Http\\Router' => __DIR__ . '/../..' . '/app/Http/Router.php',
+        'App\\Model\\Entity\\Category' => __DIR__ . '/../..' . '/app/Model/Entity/Category.php',
+        'App\\Model\\Entity\\Product' => __DIR__ . '/../..' . '/app/Model/Entity/Product.php',
+        'App\\Utils\\View' => __DIR__ . '/../..' . '/app/Utils/View.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'WilliamCosta\\DatabaseManager\\Database' => __DIR__ . '/..' . '/william-costa/database-manager/src/Database.php',
+        'WilliamCosta\\DatabaseManager\\Pagination' => __DIR__ . '/..' . '/william-costa/database-manager/src/Pagination.php',
+        'WilliamCosta\\DotEnv\\Environment' => __DIR__ . '/..' . '/william-costa/dot-env/src/Environment.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

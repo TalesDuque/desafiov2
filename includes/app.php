@@ -16,7 +16,6 @@ Database::config(
     getenv('DB_PORT')
 );
 
-
 View::init([
     'URL' => getenv('URL')
 ]);
