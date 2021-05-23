@@ -5,6 +5,7 @@ namespace App\Controller\Pages;
 use \App\Utils\View;
 use \App\Controller\Pages\Products;
 use \App\Model\Entity\Product;
+use \App\Controller\Pages\Categories;
 /**
  *
  */
@@ -18,6 +19,7 @@ class AddProducts
     public static function renderAddProducts() : string
     {
         return View::render('addProduct', [
+          'categories' => Categories::getCategoryItems('categories/addItem')
         ]);
     }
 
