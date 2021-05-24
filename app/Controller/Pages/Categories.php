@@ -45,9 +45,37 @@ class Categories
         while($newCategory = $results->fetchObject(Category::class)) {
           $items .= View::render($path, [
               'name' => $newCategory->getName(),
-              'code' => $newCategory->getCode()
+              'code' => $newCategory->getCode(),
+              'id' => $newCategory->getId()
           ]);
         }
         return (isset($items)) ? $items : '';
+    }
+
+    /**
+     * Renderiza a pagina de confirmação de delete de Categoria
+     * @param  Request $request
+     * @param  int $id
+     * @return string
+     */
+    public static function deleteCategory($request, $id) : string
+    {
+        return View::render('deleteCategory', [
+        ]);
+    }
+
+    /**
+     * Deleta a Categoria e Redireciona para pagina de Categorias
+     * @param  Request $request
+     * @param  int $id
+     * @return string
+     */
+    public static function deleteCategoryConfirm($request, $id) : string
+    {
+        $delCategory = new Category();
+        $delCategory->setId($id);
+        $delCategory->delete();
+        $request->getRouter()->redirect('/categories');
+        return self::getProducts();
     }
 }

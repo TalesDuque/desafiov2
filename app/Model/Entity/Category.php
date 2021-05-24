@@ -11,6 +11,7 @@ class Category
 {
     private $name;
     private $code;
+    private $idcategory;
 
     /**
      * Retorna o Nome da Categoria
@@ -19,6 +20,15 @@ class Category
     public function getName() : string
     {
         return $this->name;
+    }
+
+    /**
+     * Retorna o ID da categoria
+     * @return int
+     */
+    public function getId() : int
+    {
+        return $this->idcategory;
     }
 
     /**
@@ -39,6 +49,14 @@ class Category
         $this->name = $name;
     }
 
+    /**
+     * Seta o ID da categoria no objeto (EDIT e DELETE)
+     * @param int $id [description]
+     */
+    public function setId(int $id)
+    {
+        $this->idcategory = $id;
+    }
     /**
      * Seta o Codigo da Categoria no objeto
      * @param string $code
@@ -70,5 +88,14 @@ class Category
     public static function getCategories($where = null, $order = null, $limit = null, $fields = '*')
     {
         return (new Database('category'))->select($where, $order, $limit, $fields);
+    }
+
+    /**
+     * Deleta categoria no banco de Dados
+     * @return bool
+     */
+    public function delete() : bool
+    {
+        return (new Database('category'))->delete('idcategory = '.$this->idcategory);
     }
 }

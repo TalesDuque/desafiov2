@@ -57,3 +57,15 @@ $obRouter->post('/products/{id}/delete', [
         return new Response(200, Pages\Products::deleteProductConfirm($request, $id));
     }
 ]);
+
+$obRouter->get('/categories/{id}/delete', [
+    function($request, $id) {
+        return new Response(200, Pages\Categories::deleteCategory($request, $id));
+    }
+]);
+
+$obRouter->post('/categories/{id}/delete', [
+    function($request, $id) {
+        return new Response(200, Pages\Categories::deleteCategoryConfirm($request, $id));
+    }
+]);

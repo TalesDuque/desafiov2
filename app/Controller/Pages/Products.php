@@ -42,13 +42,25 @@ class Products
         return $items;
     }
 
+    /**
+     * Renderiza a pagina de confirmação de delete de Produto
+     * @param  Request $request
+     * @param  int $id
+     * @return string
+     */
     public static function deleteProduct($request, $id) : string
     {
         return View::render('deleteProduct', [
         ]);
     }
 
-    public static function deleteProductConfirm($request, $id)
+    /**
+     * Deleta o Produto e Redireciona para pagina de Produtos
+     * @param  Request $request
+     * @param  int $id 
+     * @return string
+     */
+    public static function deleteProductConfirm($request, $id) : string
     {
         $delProduct = new Product();
         $delProduct->setId($id);
