@@ -131,7 +131,8 @@ class Product
      */
     public function setCategories($categories)
     {
-        $this->categories = $categories;
+        $this->categories = implode(", ",$categories);
+        var_dump($this->categories);
     }
 
     /**
@@ -153,7 +154,8 @@ class Product
             'name' => $this->name,
             'price' => $this->price,
             'quantity' => $this->quantity,
-            'description' => $this->description
+            'description' => $this->description,
+            'categories' => $this->categories
         ]);
     }
 

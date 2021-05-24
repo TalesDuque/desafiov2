@@ -9,6 +9,7 @@ use \WilliamCosta\DatabaseManager\Database;
  */
 class Category
 {
+
     private $name;
     private $code;
     private $idcategory;
