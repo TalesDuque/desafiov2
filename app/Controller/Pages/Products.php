@@ -35,9 +35,25 @@ class Products
               'sku' => $newProduct->getSku(),
               'price' => $newProduct->getPrice(),
               'quantity' => $newProduct->getQuantity(),
-              'categories' => $newProduct->getCategories()
+              'categories' => $newProduct->getCategories(),
+              'id' => $newProduct->getId()
           ]);
         }
         return $items;
+    }
+
+    public static function deleteProduct($request, $id) : string
+    {
+        return View::render('deleteProduct', [
+        ]);
+    }
+
+    public static function deleteProductConfirm($request, $id)
+    {
+        $delProduct = new Product();
+        $delProduct->setId($id);
+        $delProduct->delete();
+        $request->getRouter()->redirect('/products');
+        return self::getProducts();
     }
 }

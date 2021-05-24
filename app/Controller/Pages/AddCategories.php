@@ -26,7 +26,7 @@ class AddCategories
      * @param  Request $request
      * @return string
      */
-    public static function insertCategory($request)
+    public static function insertCategory($request) : string
     {
         $productVars = $request->getPostVars();
         $newProduct = new Category();

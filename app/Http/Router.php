@@ -21,7 +21,7 @@ class Router
      */
     public function __construct($url)
     {
-        $this->request = new Request();
+        $this->request = new Request($this);
         $this->url = $url;
         $this->setPrefix();
     }
@@ -53,9 +53,9 @@ class Router
         $params['variables'] = [];
         // Modelo de variável das rotas
         $patternVariable = '/{(.*?)}/';
-        if(preg_match($patternVariable, $route, $matches)) {
+        if(preg_match_all($patternVariable, $route, $matches)) {
             $route = preg_replace($patternVariable, '(.*?)', $route);
-            $params['variable'] = $matches[1];
+            $params['variables'] = $matches[1];
         }
         $patternRoute = '/^'.str_replace('/', '\/', $route).'$/';
         $this->routes[$patternRoute][$method] = $params;
@@ -160,6 +160,13 @@ class Router
         } catch (Exception $e) {
             return new Response($e->getCode(), $e->getMessage());
         }
+    }
+
+    public function redirect($route)
+    {
+        $url = $this->url.$route;
+        header('location: '.$url);
+        exit;
     }
 
 }

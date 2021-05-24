@@ -12,17 +12,24 @@ class Request
     private $queryParams = [];
     private $postVars = [];
     private $headers = [];
+    private $router;
 
     /**
      * Construtor da Classe Request
      */
-    public function __construct()
+    public function __construct($router)
     {
+        $this->router = $router;
         $this->queryParams = $_GET ?? [];
         $this->postVars = $_POST ?? [];
         $this->headers = getallheaders();
         $this->httpMethod = $_SERVER['REQUEST_METHOD'] ?? '';
         $this->uri = $_SERVER['REQUEST_URI'] ?? '';
+    }
+
+    public function getRouter()
+    {
+        return $this->router;
     }
 
     /**

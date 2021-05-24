@@ -28,7 +28,7 @@ class AddProducts
      * @param  Request $request
      * @return string
      */
-    public static function insertProduct($request)
+    public static function insertProduct($request) : string
     {
         $productVars = $request->getPostVars();
         $newProduct = new Product();

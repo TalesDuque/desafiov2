@@ -28,7 +28,6 @@ class Categories
     */
     public static function getCategoryItems($path) : string
     {
-        $items = '';
         $results = Category::getCategories(null, 'idcategory ASC');
         $items = self::renderCategoryItems($results, $path);
         return $items;
@@ -42,12 +41,13 @@ class Categories
      */
     private static function renderCategoryItems($results, $path) : string
     {
+        $items = '';
         while($newCategory = $results->fetchObject(Category::class)) {
           $items .= View::render($path, [
               'name' => $newCategory->getName(),
-              'code' => $newCategory->getCode(),
+              'code' => $newCategory->getCode()
           ]);
         }
-        return $items;
+        return (isset($items)) ? $items : '';
     }
 }

@@ -10,7 +10,7 @@ use \WilliamCosta\DatabaseManager\Database;
 class Product
 {
 
-    private $id;
+    private $idproduct;
     private $name;
     private $description;
     private $price;
@@ -24,7 +24,7 @@ class Product
      */
     public function getId() : int
     {
-        return $this->id;
+        return $this->idproduct;
     }
 
     /**
@@ -128,11 +128,19 @@ class Product
 
     /**
      * Registra as Categorias do Produto
-     * @param mixed $categories
      */
-    public function setCategories(mixed $categories)
+    public function setCategories($categories)
     {
         $this->categories = $categories;
+    }
+
+    /**
+     * Registra o ID de um Produto (EDIT E DELETE)
+     * @param int $id
+     */
+    public function setId($id)
+    {
+        $this->idproduct = $id;
     }
 
     /**
@@ -160,5 +168,14 @@ class Product
     public static function getProducts($where = null, $order = null, $limit = null, $fields = '*')
     {
         return (new Database('product'))->select($where, $order, $limit, $fields);
+    }
+
+    /**
+     * Deleta produto no banco de Dados
+     * @return bool
+     */
+    public function delete() : bool
+    {
+        return (new Database('product'))->delete('idproduct = '.$this->idproduct);
     }
 }
