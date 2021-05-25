@@ -75,7 +75,49 @@ class Categories
         $delCategory = new Category();
         $delCategory->setId($id);
         $delCategory->delete();
+        self::categoryRedirect($request);
+    }
+
+    /**
+     * Retorna a view com as informações da categoria selecionada
+     * @param  Request $request
+     * @param  string $id
+     * @return string
+     */
+    public static function editCategory($request, $id) : string
+    {
+        $results = Category::getCategoryById($id);
+        $info = $results->fetchObject(Category::class);
+        return View::render('editCategory', [
+            'name' => $info->getName(),
+            'code' => $info->getCode()
+        ]);
+    }
+
+    /**
+     * De fato realiza a edição da entidade
+     * @param  Request $request
+     * @param  string $id
+     */
+    public static function submitEditCategory($request, $id)
+    {
+        $productVars = $request->getPostVars();
+        $editCategory = new Category();
+        $editCategory->setId($id);
+        $editCategory->setName($productVars['name']);
+        $editCategory->setCode($productVars['code']);
+        $editCategory->update();
+        self::categoryRedirect($request);
+    }
+
+    /**
+     * Redireciona para a view de Categorias
+     * @param  Request $request
+     * @return string
+     */
+    public static function categoryRedirect($request) : string
+    {
         $request->getRouter()->redirect('/categories');
-        return self::getProducts();
+        return self::getCategories();
     }
 }

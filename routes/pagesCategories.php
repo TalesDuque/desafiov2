@@ -32,3 +32,15 @@ $obRouter->post('/categories/{id}/delete', [
         return new Response(200, Pages\Categories::deleteCategoryConfirm($request, $id));
     }
 ]);
+
+$obRouter->get('/categories/{id}/edit', [
+    function($request, $id) {
+        return new Response(200, Pages\Categories::editCategory($request, $id));
+    }
+]);
+
+$obRouter->post('/categories/{id}/edit', [
+    function($request, $id) {
+        return new Response(200, Pages\Categories::submitEditCategory($request, $id));
+    }
+]);

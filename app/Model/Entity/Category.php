@@ -100,8 +100,31 @@ class Category
         return (new Database('category'))->delete('idcategory = '.$this->idcategory);
     }
 
+    public function update() : bool
+    {
+        return (new Database('category'))->update('idcategory = '.$this->idcategory, [
+          'name' => $this->name,
+          'code' => $this->code  
+        ]);
+    }
+
+    /**
+     * Retorna O ID da categoria pelo Nome
+     * @param  string $name
+     * @return PDOStatement
+     */
     public static function getCategoryIdByName($name)
     {
         return (new Database('category'))->select("name='$name'", $order = null, $limit = null, $fields = 'idcategory');
+    }
+
+    /**
+     * Retorna o NOME e o CODIGO através do ID
+     * @param  string $id
+     * @return PDOStatement
+     */
+    public static function getCategoryById($id)
+    {
+        return (new Database('category'))->select("idcategory='$id'", $order = null, $limit = null, $fields = '*');
     }
 }
