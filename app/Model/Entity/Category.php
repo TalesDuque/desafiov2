@@ -100,11 +100,15 @@ class Category
         return (new Database('category'))->delete('idcategory = '.$this->idcategory);
     }
 
+    /**
+     * Atualiza a categoria
+     * @return bool
+     */
     public function update() : bool
     {
         return (new Database('category'))->update('idcategory = '.$this->idcategory, [
           'name' => $this->name,
-          'code' => $this->code  
+          'code' => $this->code
         ]);
     }
 

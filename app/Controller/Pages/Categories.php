@@ -95,7 +95,7 @@ class Categories
     }
 
     /**
-     * De fato realiza a edição da entidade
+     * De fato realiza a edição da entidade de Categoria
      * @param  Request $request
      * @param  string $id
      */

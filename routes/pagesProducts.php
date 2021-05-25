@@ -32,3 +32,15 @@ $obRouter->post('/products/{id}/delete', [
         return new Response(200, Pages\Products::deleteProductConfirm($request, $id));
     }
 ]);
+
+$obRouter->get('/products/{id}/edit', [
+    function($request, $id) {
+        return new Response(200, Pages\Products::editProduct($request, $id));
+    }
+]);
+
+$obRouter->post('/products/{id}/edit', [
+    function($request, $id) {
+        return new Response(200, Pages\Products::submitEditProduct($request, $id));
+    }
+]);

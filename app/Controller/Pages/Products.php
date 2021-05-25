@@ -57,14 +57,64 @@ class Products
     /**
      * Deleta o Produto e Redireciona para pagina de Produtos
      * @param  Request $request
-     * @param  int $id 
-     * @return string
+     * @param  int $id
      */
-    public static function deleteProductConfirm($request, $id) : string
+    public static function deleteProductConfirm($request, $id)
     {
         $delProduct = new Product();
         $delProduct->setId($id);
         $delProduct->delete();
+        self::productRedirect($request);
+    }
+
+    /**
+     * Retorna a view de edit com as informações do produto selecionada
+     * @param  Request $request
+     * @param  string $id
+     * @return string
+     */
+    public static function editProduct($request, $id) : string
+    {
+        $results = Product::getProductById($id);
+        $info = $results->fetchObject(Product::class);
+        return View::render('editProduct', [
+            'sku' => $info->getSku(),
+            'name' => $info->getName(),
+            'price' => $info->getPrice(),
+            'quantity' => $info->getQuantity(),
+            'description' => $info->getDescription(),
+            'categories' => Categories::getCategoryItems('categories/addItem')
+        ]);
+    }
+
+    /**
+     * De fato realiza a edição da entidade de Produto
+     * @param  Request $request
+     * @param  string $id
+     */
+    public static function submitEditProduct($request, $id)
+    {
+        $productVars = $request->getPostVars();
+        $editProduct = new Product();
+        $editProduct->setId($id);
+        $editProduct->setName($productVars['name']);
+        $editProduct->setSku($productVars['sku']);
+        $editProduct->setDescription($productVars['description']);
+        $editProduct->setPrice($productVars['price']);
+        $editProduct->setQuantity($productVars['quantity']);
+        $editProduct->setCategories($productVars['categories']);
+        $editProduct->updateProductRelationships();
+        $editProduct->update();
+        self::productRedirect($request);
+    }
+
+    /**
+     * Redireciona para a view de Produtos
+     * @param  Request $request
+     * @return string
+     */
+    public static function productRedirect($request) : string
+    {
         $request->getRouter()->redirect('/products');
         return self::getProducts();
     }

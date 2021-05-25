@@ -186,6 +186,16 @@ class Product
     }
 
     /**
+     * Retorna as informações do produto a partir do if
+     * @param  string $id
+     * @return PDOStatement
+     */
+    public static function getProductById($id)
+    {
+          return (new Database('product'))->select("idproduct='$id'", $order = null, $limit = null, $fields = '*');
+    }
+
+    /**
      * Deleta produto no banco de Dados
      * @return bool
      */
@@ -193,4 +203,27 @@ class Product
     {
         return (new Database('product'))->delete('idproduct = '.$this->idproduct);
     }
+
+    /**
+     * Atualiza o produtos
+     * @return bool
+     */
+    public function update() : bool
+    {
+        return (new Database('product'))->update('idproduct = '.$this->idproduct, [
+          'sku' => $this->sku,
+          'name' => $this->name,
+          'price' => $this->price,
+          'quantity' => $this->quantity,
+          'description' => $this->description,
+          'categories' => $this->categories
+        ]);
+    }
+
+    public function updateProductRelationships()
+    {
+        (new Database('product_categories'))->delete('idproduct = '.$this->idproduct);
+        $this->addProductRelationships();
+    }
+
 }
