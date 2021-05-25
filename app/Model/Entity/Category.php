@@ -99,4 +99,9 @@ class Category
     {
         return (new Database('category'))->delete('idcategory = '.$this->idcategory);
     }
+
+    public static function getCategoryIdByName($name)
+    {
+        return (new Database('category'))->select("name='$name'", $order = null, $limit = null, $fields = 'idcategory');
+    }
 }

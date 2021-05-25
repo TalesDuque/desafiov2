@@ -3,6 +3,7 @@
 namespace App\Model\Entity;
 
 use \WilliamCosta\DatabaseManager\Database;
+use \App\Model\Entity\Category;
 
 /**
  * Model do Produto
@@ -132,7 +133,6 @@ class Product
     public function setCategories($categories)
     {
         $this->categories = implode(", ",$categories);
-        var_dump($this->categories);
     }
 
     /**
@@ -157,6 +157,19 @@ class Product
             'description' => $this->description,
             'categories' => $this->categories
         ]);
+    }
+
+    public function addProductRelationships()
+    {
+        $categories = explode(', ', $this->categories);
+        foreach ($categories as $category) {
+            $idcategory = Category::getCategoryIdByName($category);
+            $newCategory = $idcategory->fetchObject(Category::class);
+            (new Database('product_categories'))->insert([
+                'idproduct' => $this->idproduct,
+                'idcategory' => (int)$newCategory->getId()
+            ]);
+        }
     }
 
     /**

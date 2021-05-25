@@ -39,6 +39,7 @@ class AddProducts
         $newProduct->setQuantity($productVars['quantity']);
         $newProduct->setCategories($productVars['categories']);
         $newProduct->addProduct();
+        $newProduct->addProductRelationships();
         return Products::getProducts();
     }
 
