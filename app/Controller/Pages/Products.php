@@ -141,6 +141,7 @@ class Products
         $file = new Image($_FILES);
         $file->setLocation('assets/images/product');
         $file->setName($id);
+        $file->setMime(array('jpeg'));
         if ($file["image"]) {
             $upload = $file->upload();
             if ($upload) {

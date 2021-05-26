@@ -25,15 +25,20 @@ class Dashboard
         ]);
     }
 
+    /**
+     * Informações dos produtos na dashboard
+     * @return string
+     */
     public static function getProductsInfo() : string
     {
         $items = '';
         $results = Product::getProducts(null, 'idproduct ASC');
         while($newProduct = $results->fetchObject(Product::class)) {
           $items .= View::render('dashboard/item', [
+              'id' => $newProduct->getId(),
               'name' => $newProduct->getName(),
               'price' => $newProduct->getPrice(),
-              'quantity' => $newProduct->getQuantity(),
+              'quantity' => $newProduct->getQuantity()
           ]);
         }
         return $items;
