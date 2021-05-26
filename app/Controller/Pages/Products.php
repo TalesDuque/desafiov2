@@ -4,6 +4,7 @@ namespace App\Controller\Pages;
 
 use \App\Utils\View;
 use \App\Model\Entity\Product;
+use \Bulletproof\Image;
 /**
  *
  */
@@ -15,7 +16,6 @@ class Products
      */
     public static function getProducts() : string
     {
-        $newProduct = new Product();
         return View::render('products', [
             'items' => self::getProductItems()
         ]);
@@ -48,7 +48,7 @@ class Products
      * @param  int $id
      * @return string
      */
-    public static function deleteProduct($request, $id) : string
+    public static function deleteProduct() : string
     {
         return View::render('deleteProduct', [
         ]);
@@ -63,6 +63,7 @@ class Products
     {
         $delProduct = new Product();
         $delProduct->setId($id);
+        $delProduct->deleteRelationship();
         $delProduct->delete();
         self::productRedirect($request);
     }
@@ -117,5 +118,37 @@ class Products
     {
         $request->getRouter()->redirect('/products');
         return self::getProducts();
+    }
+
+    /**
+     * Renderiza a Pagina de upload
+     * @return string
+     */
+    public static function uploadImage() : string
+    {
+        return View::render('uploadProductImage', [
+        ]);
+    }
+
+    /**
+     * Confirmar Upload de imagem
+     * @param  Request $request
+     * @param  string $id
+     */
+    public static function uploadImageConfirm($request, $id)
+    {
+        $productVars = $request->getPostVars();
+        $file = new Image($_FILES);
+        $file->setLocation('assets/images/product');
+        $file->setName($id);
+        if ($file["image"]) {
+            $upload = $file->upload();
+            if ($upload) {
+                echo $upload->getFullPath();
+            } else {
+                echo $file->getError();
+            }
+        }
+        self::productRedirect($request);
     }
 }

@@ -178,4 +178,10 @@ class Database{
     return true;
   }
 
+  public function rows()
+  {
+    $query = 'SELECT COUNT(*) FROM '.$this->table.';';
+    return $this->execute($query);
+  }
+
 }

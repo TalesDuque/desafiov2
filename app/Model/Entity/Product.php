@@ -220,10 +220,25 @@ class Product
         ]);
     }
 
+    /**
+     * Atualiza a relação Produto-Categorias
+     */
     public function updateProductRelationships()
     {
-        (new Database('product_categories'))->delete('idproduct = '.$this->idproduct);
+        $this->deleteRelationship();
         $this->addProductRelationships();
     }
 
+    /**
+     * Deleta a relação Produto-Categoria
+     */
+    public function deleteRelationship()
+    {
+        (new Database('product_categories'))->delete('idproduct = '.$this->idproduct);
+    }
+
+    public function getNumberProducts()
+    {
+        return (new Database('product'))->rows();
+    }
 }

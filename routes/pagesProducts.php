@@ -9,6 +9,18 @@ $obRouter->get('/products', [
     }
 ]);
 
+$obRouter->get('/products/{id}/upload', [
+    function() {
+        return new Response(200, Pages\Products::uploadImage());
+    }
+]);
+
+$obRouter->post('/products/{id}/upload', [
+    function($request, $id) {
+        return new Response(200, Pages\Products::uploadImageConfirm($request, $id));
+    }
+]);
+
 $obRouter->get('/addProduct', [
     function() {
         return new Response(200, Pages\AddProducts::renderAddProducts());
@@ -22,8 +34,8 @@ $obRouter->post('/addProduct', [
 ]);
 
 $obRouter->get('/products/{id}/delete', [
-    function($request, $id) {
-        return new Response(200, Pages\Products::deleteProduct($request, $id));
+    function() {
+        return new Response(200, Pages\Products::deleteProduct());
     }
 ]);
 

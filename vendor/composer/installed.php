@@ -6,11 +6,20 @@
     'aliases' => 
     array (
     ),
-    'reference' => '364f1729ecc87440f3a5fc932f0bc6ba0c9720b4',
+    'reference' => 'a181015a8d0ecdc1196a054634f7c04166eac864',
     'name' => 'tales/desafiov2',
   ),
   'versions' => 
   array (
+    'samayo/bulletproof' => 
+    array (
+      'pretty_version' => 'v4.0.1',
+      'version' => '4.0.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '4e485530522c0f3af81eba3955f1c459401cdd54',
+    ),
     'tales/desafiov2' => 
     array (
       'pretty_version' => 'dev-master',
@@ -18,7 +27,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '364f1729ecc87440f3a5fc932f0bc6ba0c9720b4',
+      'reference' => 'a181015a8d0ecdc1196a054634f7c04166eac864',
     ),
     'william-costa/database-manager' => 
     array (
