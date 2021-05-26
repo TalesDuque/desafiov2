@@ -1,18 +1,13 @@
 <?php
 
-require __DIR__."/vendor/autoload.php";
+require __DIR__ . '/includes/app.php';
 
 use \App\Http\Router;
-use \App\Utils\View;
 
-define('URL', 'http://localhost/desafiov2');
-
-View::init([
-    'URL' => URL
-]);
-
-$obRouter = new Router(URL);
+$obRouter = new Router(getenv('URL'));
 
 include __DIR__.'/routes/pages.php';
+include __DIR__.'/routes/pagesProducts.php';
+include __DIR__.'/routes/pagesCategories.php';
 
 $obRouter->run()->sendResponse();

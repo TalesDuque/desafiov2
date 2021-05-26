@@ -4,8 +4,139 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d9758c73765fac8b8eaf7b4413717b07",
-    "packages": [],
+    "content-hash": "bea1f05c22a453a277cc722d78911053",
+    "packages": [
+        {
+            "name": "samayo/bulletproof",
+            "version": "v4.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/samayo/bulletproof.git",
+                "reference": "4e485530522c0f3af81eba3955f1c459401cdd54"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/samayo/bulletproof/zipball/4e485530522c0f3af81eba3955f1c459401cdd54",
+                "reference": "4e485530522c0f3af81eba3955f1c459401cdd54",
+                "shasum": ""
+            },
+            "require": {
+                "ext-exif": "*",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "samayo"
+                }
+            ],
+            "description": "A simple and secure PHP image uploader",
+            "homepage": "http://github.com/samayo/bulletproof",
+            "keywords": [
+                "Simple",
+                "image",
+                "security",
+                "upload"
+            ],
+            "support": {
+                "issues": "https://github.com/samayo/bulletproof/issues",
+                "source": "https://github.com/samayo/bulletproof/tree/master"
+            },
+            "time": "2018-06-23T22:16:47+00:00"
+        },
+        {
+            "name": "william-costa/database-manager",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/william-costa/database-manager.git",
+                "reference": "ed871363f27251a882b9e5dc036dcac566b271c4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/william-costa/database-manager/zipball/ed871363f27251a882b9e5dc036dcac566b271c4",
+                "reference": "ed871363f27251a882b9e5dc036dcac566b271c4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "WilliamCosta\\DatabaseManager\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "William Costa",
+                    "email": "canalwdev@gmail.com"
+                }
+            ],
+            "description": "A simple library for managing database connections, results pagination and building queries in PHP.",
+            "support": {
+                "issues": "https://github.com/william-costa/database-manager/issues",
+                "source": "https://github.com/william-costa/database-manager/tree/v0.1.0"
+            },
+            "time": "2021-03-19T18:51:35+00:00"
+        },
+        {
+            "name": "william-costa/dot-env",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/william-costa/dot-env.git",
+                "reference": "e5eb9b0384b57f2812215fab0e3853c16a4b368e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/william-costa/dot-env/zipball/e5eb9b0384b57f2812215fab0e3853c16a4b368e",
+                "reference": "e5eb9b0384b57f2812215fab0e3853c16a4b368e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "WilliamCosta\\DotEnv\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "William Costa",
+                    "email": "canalwdev@gmail.com"
+                }
+            ],
+            "description": "A simple library for managing environment variables in PHP.",
+            "support": {
+                "issues": "https://github.com/william-costa/dot-env/issues",
+                "source": "https://github.com/william-costa/dot-env/tree/v0.1.0"
+            },
+            "time": "2021-03-19T19:28:14+00:00"
+        }
+    ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",

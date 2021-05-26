@@ -7,6 +7,11 @@ namespace Composer\Autoload;
 class ComposerStaticInit394b2aaf9c0e931304e046e040aa216c
 {
     public static $prefixLengthsPsr4 = array (
+        'W' => 
+        array (
+            'WilliamCosta\\DotEnv\\' => 20,
+            'WilliamCosta\\DatabaseManager\\' => 29,
+        ),
         'A' => 
         array (
             'App\\' => 4,
@@ -14,6 +19,14 @@ class ComposerStaticInit394b2aaf9c0e931304e046e040aa216c
     );
 
     public static $prefixDirsPsr4 = array (
+        'WilliamCosta\\DotEnv\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/william-costa/dot-env/src',
+        ),
+        'WilliamCosta\\DatabaseManager\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/william-costa/database-manager/src',
+        ),
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
@@ -21,9 +34,7 @@ class ComposerStaticInit394b2aaf9c0e931304e046e040aa216c
     );
 
     public static $classMap = array (
-        'App\\Controller\\Pages\\Dashboard' => __DIR__ . '/../..' . '/app/Controller/Pages/Dashboard.php',
-        'App\\Model\\Entity\\Product' => __DIR__ . '/../..' . '/app/Model/Entity/Product.php',
-        'App\\Utils\\View' => __DIR__ . '/../..' . '/app/Utils/View.php',
+        'Bulletproof\\Image' => __DIR__ . '/..' . '/samayo/bulletproof/src/bulletproof.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
 

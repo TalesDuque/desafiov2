@@ -10,17 +10,37 @@ use \App\Model\Entity\Product;
 class Dashboard
 {
 
-  /**
-   * Método que retorna o conteúdo da Dashboard
-   * @return string
-   */
-  public static function getDashboard() : string
-  {
-      $obProduct = new Product();
+    /**
+     * Método que retorna o conteúdo da Dashboard
+     * @return string
+     */
+    public static function getDashboard() : string
+    {
+        $newProduct = new Product();
+        $results = $newProduct->getNumberProducts();
+        $info = $results->fetch();
+        return View::render('dashboard', [
+          'itemquantity' => $info['COUNT(*)'],
+          'item' => self::getProductsInfo()
+        ]);
+    }
 
-      return View::render('dashboard', [
-        'name' => 'Tales',
-        'description' => 'Alo'
-      ]);
-  }
+    /**
+     * Informações dos produtos na dashboard
+     * @return string
+     */
+    public static function getProductsInfo() : string
+    {
+        $items = '';
+        $results = Product::getProducts(null, 'idproduct ASC');
+        while($newProduct = $results->fetchObject(Product::class)) {
+          $items .= View::render('dashboard/item', [
+              'id' => $newProduct->getId(),
+              'name' => $newProduct->getName(),
+              'price' => $newProduct->getPrice(),
+              'quantity' => $newProduct->getQuantity()
+          ]);
+        }
+        return $items;
+    }
 }

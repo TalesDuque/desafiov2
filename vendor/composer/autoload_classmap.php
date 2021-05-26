@@ -6,8 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'App\\Controller\\Pages\\Dashboard' => $baseDir . '/app/Controller/Pages/Dashboard.php',
-    'App\\Model\\Entity\\Product' => $baseDir . '/app/Model/Entity/Product.php',
-    'App\\Utils\\View' => $baseDir . '/app/Utils/View.php',
+    'Bulletproof\\Image' => $vendorDir . '/samayo/bulletproof/src/bulletproof.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
 );
